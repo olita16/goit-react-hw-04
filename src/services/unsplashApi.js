@@ -25,8 +25,8 @@ const FetchImages = async (searchQuery, page) => {
       ({ id, urls, alt_description }) => {
         return {
           id,
-          webformatURL: urls.small,
-          largeImageURL: urls.full,
+          webformatURL: urls.small, 
+          largeImageURL: urls.regular, 
           tags: alt_description || "Image",
         };
       }
