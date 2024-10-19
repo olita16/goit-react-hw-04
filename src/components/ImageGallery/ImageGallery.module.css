@@ -11,7 +11,7 @@
   margin-right: auto;
   margin-top: 16px;
 }
-.btnBox {
-  display: flex;
-  justify-content: center;
+
+.imageGalleryItem {
+  border-radius: 4px;
 }

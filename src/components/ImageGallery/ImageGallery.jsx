@@ -1,20 +1,24 @@
-import ImageGalleryItem from "../ImageCard/ImageCard";
-import styles from "./ImageGallery.module.css";
 
-const ImageGallery = ({ images }) => {
+import ImageCard from "../ImageCard/ImageCard";
+import css from "./ImageGallery.module.css";
+
+function ImageGallery({ images, openModal }) {
   return (
-    <ul className={styles.imageGallery}>
-      {images &&
-        images.map(({ id, webformatURL, largeImageURL, tags }) => (
-          <ImageGalleryItem
-            key={id}
-            webformatURL={webformatURL}
-            tags={tags}
-            largeImageURL={largeImageURL}
-          />
-        ))}
+    <ul className={css.imageGallery}>
+      {images.map(({ id, description, urls: { small, regular } }, index) => {
+        return (
+          <li key={`${id}-${index}`} className={css.imageGalleryItem}>
+            <ImageCard
+              small={small}
+              regular={regular}
+              description={description}
+              openModal={openModal}
+            />
+          </li>
+        );
+      })}
     </ul>
   );
-};
+}
 
 export default ImageGallery;

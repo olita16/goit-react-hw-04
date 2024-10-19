@@ -1,29 +1,12 @@
-import { useState } from "react";
-import styles from "./ImageCard.module.css";
-import Modal from "../Modal/Modal";
+import css from "./ImageCard.module.css"
 
-function ImageGalleryItem({ tags, largeImageURL, webformatURL }) {
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => {
-    setShowModal((prevState) => !prevState);
-  };
-
-  return (
-    <>
-      <li className={styles.imageGalleryItem}>
-        <img
-          className={styles.ImageGalleryItemImage}
-          src={webformatURL}
-          alt={tags}
-          onClick={toggleModal}
-        />
-      </li>
-      {showModal && (
-        <Modal onClose={toggleModal} largeImageURL={largeImageURL} alt={tags} />
-      )}
-    </>
-  );
+function ImageCard({ description, small, regular, openModal }) {
+    return (
+        <div> 
+            <img className={css.ImageCardItemImage} src={small} alt={description}
+            onClick={() => openModal(regular, description)}/>
+        </div>
+    )
 }
 
-export default ImageGalleryItem;
+export default ImageCard;

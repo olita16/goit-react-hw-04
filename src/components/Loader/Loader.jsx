@@ -1,9 +1,9 @@
 import { FidgetSpinner } from 'react-loader-spinner';
-import styles from './Loader.module.css';
+import css from './Loader.module.css';
 
 const Loader = () => {
   return (
-    <div className={styles.loader}>
+    <div className={css.loader}>
       <FidgetSpinner
         visible={true}
         height={80}
